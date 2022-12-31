@@ -1,17 +1,17 @@
-# Three.js Journey
+# myName
 
-## Setup
-Download [Node.js](https://nodejs.org/en/download/).
-Run this followed commands:
+This GitHub repo displays my name in 3D. I made this project using the three.js library in Javascript.
 
+To run the project :
 ``` bash
-# Install dependencies (only the first time)
+# Download Node,js and this project on local computer
+
+# Install Dependencies
 npm install
 
-# Run the local server at localhost:8080
-npm run dev
+# If any issues occurs while installing dependencies
+npm audit fix
 
-# Build for production in the dist/ directory
-npm run build
+# Run the local server at localhost:8000
+npm run dev
 ```
-# myName
