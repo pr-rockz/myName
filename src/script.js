@@ -116,7 +116,7 @@ const donutGeometry = new THREE.TorusBufferGeometry(0.3, 0.2, 20, 45)
 const knotGeometry = new THREE.TorusKnotGeometry(1, 0.4, 64, 8)
 const dodecahedronGeometry = new THREE.DodecahedronBufferGeometry(10, 0)
 
-for (let i = 0; i < 300; i++) {
+for (let i = 0; i < 240; i++) {
 
   // Donut
   donut.push(new THREE.Mesh(donutGeometry, material8))
@@ -232,18 +232,44 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
 
 /**
+ * FullScreen
+ */
+window.addEventListener('dblclick', () => {
+
+  const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement
+
+  if (!fullscreenElement) {
+    if (canvas.requestFullscreen) {
+      canvas.requestFullscreen()
+    }
+    else if (canvas.webkitRequestFullscreen) {
+      canvas.webkitRequestFullscreen()
+    }
+  }
+  else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen()
+    }
+    else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen()
+    }
+  }
+})
+
+
+/**
  * Animate
  */
 const clock = new THREE.Clock()
 
 const tick = () => {
-  const elapsedTime = (clock.getElapsedTime()) / 4
+  const elapsedTime = (clock.getElapsedTime()) / 2
 
   // Update controls
   controls.update()
 
   // Update Objects
-  for (let i = 0; i < 300; i++) {
+  for (let i = 0; i < 240; i++) {
     if (i % 4 === 0) {
       donut[i].rotation.set(elapsedTime, elapsedTime, 0)
       knot[i].rotation.set(elapsedTime, elapsedTime, 0)
